@@ -19,8 +19,10 @@ function userInputLength() {
   const passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
     if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
       alert("Your password must be between 8 and 128 characters!");
-    }
-  console.log(passwordLength);    
+      userInputLength();
+    } else {
+  console.log(passwordLength);   
+  }
 };
 
 function lowerCaseConfirm() {
