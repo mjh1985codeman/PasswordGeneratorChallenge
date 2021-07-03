@@ -6,70 +6,74 @@
 // step 4 - Generate Password according to user's input and validation results.  
 
 // variables. 
-const lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-const upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-const numbers = ['0','1','2','3','4','5','6','7','8','9'];
-const special = ['!','@','#','$','%','^','&','*','+'];
+const lowerCase = "abcdefghijklmnopqrstuvwxyz"
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const numbers = "0123456789"
+const special = "!@#$%^&*+"
+
+var userChoices = ""
+var randomPassword = ""
+let passwordLength = 0
 
 // Functions to get user input
 
 function userInputLength() {
-  let passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
-    if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
+  passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
+    if (passwordLength < 8 || passwordLength > 128) {
       alert("Your password must be between 8 and 128 characters!");
       userInputLength();
     } else { 
       console.log(passwordLength);
   }
+  charTypeConfirm();
 };
 
-function lowerCaseConfirm() {
+function charTypeConfirm() {
   let lowerCaseChoice = (confirm("Would you like your password to contain Lowercase Letters?"));
-  console.log(lowerCaseChoice);
-  if (lowerCaseChoice === true) {
-    // I'm not sure what to put here? But I am assuming I need to capture this response and move it into an array that can be concatinated?//
-  } else { 
-    break;
-  }
-};
-
-function upperCaseConfirm() {
   let upperCaseChoice = (confirm("Would you like your password to contain Uppercase Letters?"));
-  console.log(upperCaseChoice);
-  if (upperCaseChoice === true) {
-    // I'm not sure what to put here? //
-  } 
-
-};
-
-function numbersConfirm() {
   let numbersChoice = (confirm("Would you like your password to contain Numbers?"));
-  console.log(numbersChoice);
-  if (numbersChoice === true) {
-  
-  }
-};
-
-
-function specialConfirm() {
   let specialChoice = (confirm("Would you like your password to contain Special Characters?"));
-  console.log(specialChoice);
-  if (specialChoice === true) {
+    
+  if (lowerCaseChoice === !true && upperCaseChoice === !true && numbersChoice === !true && specialChoice === !true) { 
+      userChoices = alert("You must confirm at least one character type!")
+      charTypeConfirm();
+    }
+      console.log(userChoices);
+    if (lowerCaseChoice) {
+      userChoices += lowerCase
+    }
+
+    if (upperCaseChoice) {
+      userChoices += upperCase
+    }
+
+    if (numbersChoice) {
+      userChoices += numbers
+    }
+
+    if (specialChoice) {
+      userChoices += special
+    }
+    console.log(userChoices);
+  }; 
+  
+
+// Generate Password by for Looping through the userChoices String. 
+function generatePassword() {
+  for (var i = 0; i < passwordLength; i++) {
+    var pwGen = userChoices[Math.floor(Math.random() * userChoices.length)]
+    randomPassword += pwGen;
   }
+    
+  window.alert("Your password is " + randomPassword + ". ");
 };
 
-var inputArray = []
+
 // function calls
 
 userInputLength();
 
-lowerCaseConfirm();
-
-upperCaseConfirm();
-
-numbersConfirm();
-
-specialConfirm();
+generatePassword();
 
 // ****** Starter Code ****** //
 
