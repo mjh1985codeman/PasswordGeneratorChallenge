@@ -28,7 +28,8 @@ THEN the password is either displayed in an alert or written to the page
 To generate a password automaticatically depending on the user selected criteria which include the number of characters (8 - 128) and character types (lowercase, uppercase, numbers and special characters) desired to be included in their password.  Their selections are validated for appropriate input (must have at least one character selection and number of characters within the acceptable range.)
 
 # Published WebPage
-
+https://mjh1985codeman.github.io/PasswordGeneratorChallenge/
 # GitHub Repo
-
+https://github.com/mjh1985codeman/PasswordGeneratorChallenge
 # Deployed Screenshot
+[![PWGen-Deployed-SS.jpg](https://i.postimg.cc/VNHkLNZN/PWGen-Deployed-SS.jpg)](https://postimg.cc/McVS9zSk)
