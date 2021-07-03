@@ -1,9 +1,4 @@
-// Assignment code here
-
-// step 1 - Prompt for user to input desired character length of password. 
-// step 2 - validate length for acceptacne criteria (min number of 8 characters, max number or characters 129)
-// step 3 - Prompt user to select desired character types (upper case letters, lower case letters, numbers -or- special characters).
-// step 4 - Generate Password according to user's input and validation results.  
+// Assignment code here  
 
 // variables. 
 const lowerCase = "abcdefghijklmnopqrstuvwxyz"
@@ -11,13 +6,15 @@ const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const numbers = "0123456789"
 const special = "!@#$%^&*+"
 
+// call variables to be used for functions.
 var userChoices = ""
 var randomPassword = ""
 let passwordLength = 0
 
-// Functions to get user input
+// Functions to get user input to get values for passwordLength and userChoices.
 
 function userInputLength() {
+  //parseInt to convert passwordLength from string to a number. 
   passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
     if (passwordLength < 8 || passwordLength > 128) {
       alert("Your password must be between 8 and 128 characters!");
@@ -38,7 +35,6 @@ function charTypeConfirm() {
       userChoices = alert("You must confirm at least one character type!")
       charTypeConfirm();
     }
-      console.log(userChoices);
     if (lowerCaseChoice) {
       userChoices += lowerCase
     }
@@ -54,7 +50,6 @@ function charTypeConfirm() {
     if (specialChoice) {
       userChoices += special
     }
-    console.log(userChoices);
   }; 
   
 
@@ -65,29 +60,35 @@ function generatePassword() {
     randomPassword += pwGen;
   }
     
-  window.alert("Your password is " + randomPassword + ". ");
+  window.alert("Your password is " + randomPassword + "");
 };
 
 
 // function calls
+var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", userInputLength, generatePassword);
 
-userInputLength();
+//userInputLength();
 
-generatePassword();
+//generatePassword();
 
 // ****** Starter Code ****** //
 
+/*
+
 // Get references to the #generate element
-const generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  const password = generatePassword();
-  const passwordText = document.querySelector("#password");
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", userInputLength, charTypeConfirm, generatePassword);
+
+*/
