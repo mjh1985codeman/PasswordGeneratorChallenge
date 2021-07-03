@@ -50,6 +50,9 @@ function charTypeConfirm() {
     if (specialChoice) {
       userChoices += special
     }
+    console.log(userChoices);
+
+    generatePassword();
   }; 
   
 
@@ -66,7 +69,7 @@ function generatePassword() {
 
 // function calls
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", userInputLength, generatePassword);
+generateBtn.addEventListener("click", userInputLength);
 
 //userInputLength();
 
